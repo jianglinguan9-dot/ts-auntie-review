@@ -5,7 +5,7 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg)](https://www.typescriptlang.org/)
 [![Skill](https://img.shields.io/badge/Agent-Skill-purple.svg)](https://qwenwork.cn/docs)
-[![Stars](https://img.shields.io/github/stars/PLACEHOLDER/居委会大妈审TS.svg)](https://github.com/PLACEHOLDER/居委会大妈审TS)
+[![Stars](https://img.shields.io/github/stars/jianglinguan9-dot/居委会大妈审TS.svg)](https://github.com/jianglinguan9-dot/居委会大妈审TS)
 
 ---
 
@@ -59,10 +59,10 @@
 
 ```bash
 # QwenWork / 千问办公
-git clone https://github.com/PLACEHOLDER/居委会大妈审TS.git ~/.qwenworkcn/skills/ts-auntie-review
+git clone https://github.com/jianglinguan9-dot/居委会大妈审TS.git ~/.qwenworkcn/skills/ts-auntie-review
 
 # Claude Code
-git clone https://github.com/PLACEHOLDER/居委会大妈审TS.git ~/.claude/skills/ts-auntie-review
+git clone https://github.com/jianglinguan9-dot/居委会大妈审TS.git ~/.claude/skills/ts-auntie-review
 ```
 
 ### 使用
