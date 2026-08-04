@@ -55,15 +55,40 @@
 
 ### 安装
 
-把仓库克隆到你的 Skills 目录：
+**方式一：克隆到 Skills 目录（原生支持 SKILL.md 的工具）**
 
 ```bash
 # QwenWork / 千问办公
-git clone https://github.com/jianglinguan9-dot/居委会大妈审TS.git ~/.qwenworkcn/skills/ts-auntie-review
+git clone https://github.com/jianglinguan9-dot/ts-auntie-review.git ~/.qwenworkcn/skills/ts-auntie-review
 
 # Claude Code
-git clone https://github.com/jianglinguan9-dot/居委会大妈审TS.git ~/.claude/skills/ts-auntie-review
+git clone https://github.com/jianglinguan9-dot/ts-auntie-review.git ~/.claude/skills/ts-auntie-review
+
+# WorkBuddy
+git clone https://github.com/jianglinguan9-dot/ts-auntie-review.git ~/.workbuddy/skills/ts-auntie-review
 ```
+
+**方式二：作为系统提示词 / 自定义规则使用**
+
+对于不支持 SKILL.md 目录结构的工具，将 `SKILL.md` 的内容复制到对应配置文件中：
+
+| 工具 | 配置方式 |
+|---|---|
+| Cursor | 将 SKILL.md 内容粘贴到 `.cursor/rules/ts-auntie-review.mdc` |
+| Windsurf | 将 SKILL.md 内容粘贴到 `.windsurfrules` 或项目级 rules |
+| Cline | 将 SKILL.md 内容粘贴到 `.cline/rules/ts-auntie-review.md` |
+| Codex / ChatGPT | 将 SKILL.md 内容作为 system prompt 或 custom instructions |
+| GitHub Copilot Chat | 将 SKILL.md 内容粘贴到 `.github/copilot-instructions.md` |
+| Aider | 启动时加 `--read SKILL.md` 参数 |
+
+**方式三：一键安装（通用脚本）**
+
+```bash
+# 下载到任意位置后，按你的工具引用
+git clone https://github.com/jianglinguan9-dot/ts-auntie-review.git ~/ts-auntie-review
+```
+
+然后将 `SKILL.md` 的路径或内容按你的工具要求引用即可。
 
 ### 使用
 
@@ -123,9 +148,21 @@ ts-auntie-review/
 
 ## 支持的 AI 工具
 
-- [千问办公 / QwenWork](https://qwenwork.cn) — 原生支持
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) — 放到 `~/.claude/skills/` 下
-- 其他支持 SKILL.md 规范的 Agent 工具
+**原生支持 SKILL.md 目录结构：**
+
+- [千问办公 / QwenWork](https://qwenwork.cn) — 放到 `~/.qwenworkcn/skills/` 即自动加载
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) — 放到 `~/.claude/skills/` 即自动加载
+- WorkBuddy — 放到 `~/.workbuddy/skills/` 即自动加载
+
+**通过自定义规则 / 系统提示词适配：**
+
+- [Cursor](https://cursor.com) — `.cursor/rules/ts-auntie-review.mdc`
+- [Windsurf](https://codeium.com/windsurf) — `.windsurfrules`
+- [Cline](https://cline.bot) — `.cline/rules/ts-auntie-review.md`
+- [OpenAI Codex / ChatGPT](https://openai.com) — 作为 system prompt 或 custom instructions
+- [GitHub Copilot Chat](https://docs.github.com/copilot) — `.github/copilot-instructions.md`
+- [Aider](https://aider.chat) — `aider --read SKILL.md`
+- 任何支持 system prompt 的 AI 编程工具
 
 ## 贡献
 
