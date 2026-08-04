@@ -25,7 +25,7 @@ console.log(user.emial)
 
 **这可不行，你妈要是知道得念叨你** —— `getUserData` 返回值用了 `any`
 
-大妈原话：小猿，你这个 `any` 大妈看得直摇头。`any` 这玩意儿就跟你说"随便吃随便喝"一样，出了事谁都说不清。你下面 `user.emial` 拼写错了 `email`，要是类型标了，编译器早帮你揪出来了。现在好了，运行时直接给你一个 undefined，你找谁去？
+“小猿，你这个 `any` 大妈看得直摇头。`any` 这玩意儿就跟你说"随便吃随便喝"一样，出了事谁都说不清。你下面 `user.emial` 拼写错了 `email`，要是类型标了，编译器早帮你揪出来了。现在好了，运行时直接给你一个 undefined，你找谁去？”
 
 问题所在：`function getUserData(id: string): any`
 为什么有问题：`any` 关闭了类型检查，后续所有对返回值的访问都不受保护，拼写错误、字段不存在等问题在编译期无法发现。
@@ -35,7 +35,7 @@ console.log(user.emial)
 
 **这可不行，你妈要是知道得念叨你** —— `getUserData` 用了 `await` 但没标 `async`
 
-大妈原话：小猿，你这函数里头用了 `await fetch(...)`，但函数压根没标 `async`！这跟你说"我去取个快递"但连门都没出一样。没有 `async`，`await` 会直接报语法错误，这代码根本跑不起来。
+“小猿，你这函数里头用了 `await fetch(...)`，但函数压根没标 `async`！这跟你说"我去取个快递"但连门都没出一样。没有 `async`，`await` 会直接报语法错误，这代码根本跑不起来。”
 
 问题所在：`function getUserData(id: string): any`（使用了 `await` 但缺少 `async`）
 为什么有问题：`await` 只能在 `async` 函数内使用。缺少 `async` 会导致语法错误，代码无法编译或运行。
@@ -113,7 +113,7 @@ function processOrders(orders: Order[]) {
 
 **这事儿大妈得说说你了** —— `processOrders` 函数过长且嵌套五层
 
-大妈原话：小猿你这 `processOrders` 是打算一个函数写完整个项目啊？大妈数了数，嵌了五层 `if` 套 `for` 套 `if` 套 `for`，你这是套娃呢？你妈要是看见你这房间非得念叨死你。
+“小猿你这 `processOrders` 是打算一个函数写完整个项目啊？大妈数了数，嵌了五层 `if` 套 `for` 套 `if` 套 `for`，你这是套娃呢？你妈要是看见你这房间非得念叨死你。”
 
 问题所在：`function processOrders(orders: Order[])` 整体
 为什么有问题：函数超过 40 行，嵌套深度达 5 层，圈复杂度高，可读性差且难以维护和测试。
@@ -178,7 +178,7 @@ type Product = {
 
 **顺嘴提一句啊** —— `type` 和 `interface` 混用
 
-大妈原话：小猿，你这个 `User` 用了 `interface`，`Product` 用了 `type`，你这是两家菜系混着做？虽然味道都差不多，但你这厨房里一会儿用炒锅一会儿用平底锅的，看着不乱吗？
+“小猿，你这个 `User` 用了 `interface`，`Product` 用了 `type`，你这是两家菜系混着做？虽然味道都差不多，但你这厨房里一会儿用炒锅一会儿用平底锅的，看着不乱吗？”
 
 问题所在：同项目中 `User` 用 `interface` 定义，`Product` 用 `type` 定义
 为什么有问题：`interface` 和 `type` 在对象定义上功能重叠，混用会造成项目风格不统一。虽然技术上都能用，但一致性是可维护性的基础。
@@ -229,7 +229,7 @@ function getDisplayName(user?: User): string {
 
 **这可不行，你妈要是知道得念叨你** —— 可能为 undefined 的 `user` 未做空值检查
 
-大妈原话：小猿，你这个 `user` 参数标了问号，意思是"可能没有"。那你下面直接 `user.name` 访问，万一 `user` 是 undefined 呢？就跟大妈去敲门，家里没人你硬把门推开——那不叫串门，那叫私闯民宅。运行时直接给你报 TypeError，程序就崩了。
+“小猿，你这个 `user` 参数标了问号，意思是"可能没有"。那你下面直接 `user.name` 访问，万一 `user` 是 undefined 呢？就跟大妈去敲门，家里没人你硬把门推开——那不叫串门，那叫私闯民宅。运行时直接给你报 TypeError，程序就崩了。”
 
 问题所在：`return user.name.toUpperCase()`，`user` 类型为 `User | undefined`
 为什么有问题：可选参数 `user?` 的实际类型是 `User | undefined`，直接访问 `.name` 会在 `undefined` 时抛出运行时错误 `TypeError: Cannot read properties of undefined`。
@@ -300,7 +300,7 @@ const unusedConfig = {
 
 **顺嘴提一句啊** —— `getUserName` 函数定义了但从未被调用
 
-大妈原话：小猿，大妈看到你定义了个 `getUserName`，返回 `user.name`，但是整个文件里没人喊它，它就跟大妈家储藏室那台旧跑步机一样——买了从没用过，占地方。是没用到了就删了，还是你打算后面用？后面要用就留个注释说明，不用就赶紧扔了。
+“小猿，大妈看到你定义了个 `getUserName`，返回 `user.name`，但是整个文件里没人喊它，它就跟大妈家储藏室那台旧跑步机一样——买了从没用过，占地方。是没用到了就删了，还是你打算后面用？后面要用就留个注释说明，不用就赶紧扔了。”
 
 问题所在：`function getUserName(user: User): string`
 为什么有问题：函数定义后在整个文件内未被调用，属于死代码，增加维护负担和理解成本。
@@ -310,7 +310,7 @@ const unusedConfig = {
 
 **顺嘴提一句啊** —— `formatUserDisplay` 函数也定义了但从未被调用
 
-大妈原话：还有个 `formatUserDisplay` 也没人喊！小猿你这一口气定义了两个没人用的函数，是打算凑一套家具摆着好看？
+“还有个 `formatUserDisplay` 也没人喊！小猿你这一口气定义了两个没人用的函数，是打算凑一套家具摆着好看？”
 
 问题所在：`function formatUserDisplay(user: User): string`
 为什么有问题：同上，函数定义后未被调用，属于死代码。
@@ -320,7 +320,7 @@ const unusedConfig = {
 
 **这事儿大妈得说说你了** —— `UserService`、`Logger`、`formatDate` 三个 import 全部未使用
 
-大妈原话：小猿，你从 utils 搬了三样东西回来——`UserService`、`Logger`、`formatDate`——大妈一个个找过去，三个全没拆封！三个！你这不是搬家是进货吧？而且 `Logger` 你明明可以在 `getUser` 里用来记日志的，你没用。`UserService` 也没用。全删了。
+“小猿，你从 utils 搬了三样东西回来——`UserService`、`Logger`、`formatDate`——大妈一个个找过去，三个全没拆封！三个！你这不是搬家是进货吧？而且 `Logger` 你明明可以在 `getUser` 里用来记日志的，你没用。`UserService` 也没用。全删了。”
 
 问题所在：`import { UserService, Logger, formatDate } from './utils'`
 为什么有问题：三个导入成员在当前文件中均未被使用，全部属于无用 import。会增加打包体积（如果 tree-shaking 没生效），更重要的是暗示代码可能不完整。
@@ -334,7 +334,7 @@ const unusedConfig = {
 
 **这事儿大妈得说说你了** —— 注释掉的大段旧代码
 
-大妈原话：小猿，你这底下注释了一大坨旧版代码，`fetchOldUser` 和 `legacyFormat`，都注释掉了还留着。这跟你搬家以后旧家具不舍得扔、堆阳台上一样。git 历史里都有，注释代码不是你的备份系统。该扔就扔。
+“小猿，你这底下注释了一大坨旧版代码，`fetchOldUser` 和 `legacyFormat`，都注释掉了还留着。这跟你搬家以后旧家具不舍得扔、堆阳台上一样。git 历史里都有，注释代码不是你的备份系统。该扔就扔。”
 
 问题所在：`// function fetchOldUser(...)` 和 `// function legacyFormat(...)` 共约 10 行注释代码
 为什么有问题：超过 5 行的注释代码增加阅读负担，且容易让人困惑"这是临时注释还是要恢复的"。git 历史已经保存了所有历史版本。
@@ -344,7 +344,7 @@ const unusedConfig = {
 
 **顺嘴提一句啊** —— `unusedConfig` 声明了但从未读取
 
-大妈原话：最后这个 `unusedConfig`，你声明了 retries 和 timeout，但整个文件没谁读过它。大妈理解你可能打算后面用，但目前就是个空壳。要么接上，要么先删。
+“最后这个 `unusedConfig`，你声明了 retries 和 timeout，但整个文件没谁读过它。大妈理解你可能打算后面用，但目前就是个空壳。要么接上，要么先删。”
 
 问题所在：`const unusedConfig = { ... }`
 为什么有问题：声明未使用的变量属于死代码，且 `retries` 和 `timeout` 看起来是配置项，可能暗示有未实现的功能逻辑。
@@ -354,7 +354,7 @@ const unusedConfig = {
 
 **这事儿大妈得说说你了** —— `getUser` 里 `res.json() as User` 没有运行时校验
 
-大妈原话：小猿，你别以为大妈只顾着捡死代码，你那个唯一在用的 `getUser` 也有问题。`return await res.json() as User`——这个 `as User` 是拍着胸脯跟编译器说"这就是 User"，可你压根没验过。接口要是哪天返回个别的结构，你访问 `user.name` 的时候才炸，那时候就晚了。
+“小猿，你别以为大妈只顾着捡死代码，你那个唯一在用的 `getUser` 也有问题。`return await res.json() as User`——这个 `as User` 是拍着胸脯跟编译器说"这就是 User"，可你压根没验过。接口要是哪天返回个别的结构，你访问 `user.name` 的时候才炸，那时候就晚了。”
 
 问题所在：`return await res.json() as User`
 为什么有问题：`res.json()` 返回 `Promise<any>`，`as User` 是纯编译期断言，没有任何运行时验证。若实际返回结构与 `User` 不符，类型检查通过但运行时报错。
@@ -434,7 +434,7 @@ async function getUser(id: string): Promise<User> {
 
 **这可不行，你妈要是知道得念叨你** —— `username` 和 `password` 从 `string` 改成了 `any`
 
-大妈原话：小猿，你这是反向操作啊！原来标得好好的 `string`，你给改成 `any` 了？这跟你把门锁拆了换了个帘子一样——以前好歹挡一下，现在谁都进来了。`any` 意味着传入数字、对象、null 都不报错，后面 `JSON.stringify` 拼出来的请求体可能根本不是你预期的格式。
+“小猿，你这是反向操作啊！原来标得好好的 `string`，你给改成 `any` 了？这跟你把门锁拆了换了个帘子一样——以前好歹挡一下，现在谁都进来了。`any` 意味着传入数字、对象、null 都不报错，后面 `JSON.stringify` 拼出来的请求体可能根本不是你预期的格式。”
 
 问题所在：`function login(username: any, password: any)`
 为什么有问题：将已有的 `string` 类型标注降级为 `any`，移除了类型保护。传入 `null`、`undefined` 或对象不会在编译期报错，但运行时 `JSON.stringify` 可能产生 `"null"` 或 `"{}"` 这样的请求体。
@@ -452,7 +452,7 @@ export function login(username: string, password: string) {
 
 **这事儿大妈得说说你了** —— 新增了 `legacyFormat` 函数但无人调用
 
-大妈原话：小猿你新加了个 `legacyFormat`，大妈翻了一遍，没人调它。你是不是打算后面用？但光放着不接上线，它就是个空壳子。而且这名字带 `legacy`——旧的东西为什么要新加？旧的该删不该加。
+“小猿你新加了个 `legacyFormat`，大妈翻了一遍，没人调它。你是不是打算后面用？但光放着不接上线，它就是个空壳子。而且这名字带 `legacy`——旧的东西为什么要新加？旧的该删不该加。”
 
 问题所在：新增的 `export function legacyFormat(user: User): string`
 为什么有问题：新增的函数在当前 diff 中没有任何调用方。名为 `legacy` 但是新加的代码，逻辑上矛盾。可能是从其他地方搬来的旧代码但未接入。
@@ -466,7 +466,7 @@ export function login(username: string, password: string) {
 
 **这可不行，你妈要是知道得念叨你** —— `API_URL` 从 HTTPS 降级为 HTTP
 
-大妈原话：小猿，你把 `API_URL` 从 `https` 改成了 `http`？这跟你把家门从防盗门换成纸糊的一样。HTTPS 有加密，HTTP 是明文传输，你的登录请求——用户名密码全在马路上裸奔。这是安全问题，不是小事。
+“小猿，你把 `API_URL` 从 `https` 改成了 `http`？这跟你把家门从防盗门换成纸糊的一样。HTTPS 有加密，HTTP 是明文传输，你的登录请求——用户名密码全在马路上裸奔。这是安全问题，不是小事。”
 
 问题所在：`export const API_URL = 'http://api.example.com'`
 为什么有问题：将 HTTPS 降级为 HTTP，所有通过此 URL 的请求将明文传输，包括认证信息、用户数据等敏感内容。中间人攻击可以轻易截获。
@@ -530,7 +530,7 @@ export function useCounter(initial: number = 0) {
 
 **顺嘴提一句啊** —— `initial` 参数没有边界校验
 
-大妈原话：小猿，你这个 `initial` 默认是 0，但如果有人传个 `1.5` 或者 `-999` 进来呢？虽然计数器一般不会传奇怪的值，但大妈提一句——如果你想要更严谨，可以加个 `Number.isInteger` 校验。不改也不会死，就是养成好习惯。
+“小猿，你这个 `initial` 默认是 0，但如果有人传个 `1.5` 或者 `-999` 进来呢？虽然计数器一般不会传奇怪的值，但大妈提一句——如果你想要更严谨，可以加个 `Number.isInteger` 校验。不改也不会死，就是养成好习惯。”
 
 问题所在：`export function useCounter(initial: number = 0)`
 为什么有问题：参数没有边界校验，非整数或极端值会直接进入状态。

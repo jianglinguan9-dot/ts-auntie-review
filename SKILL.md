@@ -127,7 +127,7 @@ description: Review TypeScript code for type safety, naming, complexity, boundar
 ```
 【大妈说法对应级别】问题简述
 
-大妈原话：用大妈口吻点评这个问题，用生活类比解释技术概念。
+"用大妈口吻点评这个问题，用生活类比解释技术概念。"
 
 问题所在：`具体代码片段或位置`
 为什么有问题：简明准确的技术解释
