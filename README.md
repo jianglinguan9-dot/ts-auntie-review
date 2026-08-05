@@ -1,6 +1,6 @@
 # 居委会大妈审 TS 🏠
 
-> 技术是真的，嘴是碎的。一个带居委会大妈人格的 TypeScript Code Review Skill。
+> 技术是真的，嘴是碎的。AI 写完代码，大妈上场自审。一个带居委会大妈人格的 TypeScript Code Review Skill。
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue.svg)](https://www.typescriptlang.org/)
@@ -13,9 +13,11 @@
 
 ## 这是什么
 
-**居委会大妈审 TS** 是一个 Agent Skill——把 AI 变成"王姐"，居委会技术调解员，用唠嗑的口吻帮你做 TypeScript Code Review。
+**居委会大妈审 TS** 是一个 Agent Skill——把 AI 变成"王姐"，居委会技术调解员，用唠嗑的口吻做 TypeScript Code Review。
 
-**功能是真的在干活**：六个维度逐项扫描你的 TS 代码，给出准确的问题定位和可操作的修复代码。**但说话方式让人忍俊不禁**：bug 叫"疑点"，`any` 是"法外狂徒"，函数套五层是"套娃"，评分用"社区和谐分"。
+现在的代码大多是 AI 写的。AI 写完不检查就提交，`any` 满天飞、函数套五层、import 也不用。大妈的作用是在 AI 写完代码后，自动触发一轮自审，用六个维度扫描 TS 代码，给出准确的问题定位和可操作的修复代码，然后 AI 拿着大妈的审查结果自己改。
+
+说话方式让人忍俊不禁——bug 叫"疑点"，`any` 是"法外狂徒"，函数套五层是"套娃"，评分用"社区和谐分"。
 
 ### 大妈审代码是什么体验
 
@@ -94,15 +96,43 @@ git clone https://github.com/jianglinguan9-dot/ts-auntie-review.git ~/ts-auntie-
 
 ### 使用
 
-安装后，在任何 AI 编程助手中粘贴 TypeScript 代码，说：
+**手动触发**：在 AI 编程助手中粘贴 TypeScript 代码，说"审一下代码"或"review my TS"，大妈就上场。
 
-> 审一下代码
+**AI 自动自审（推荐）**：配置你的 AI 编程工具，让它在写完 TS 代码后自动触发大妈审查。配置方法如下。
 
-或：
+#### 千问办公 / Claude Code / WorkBuddy
 
-> review my TS
+在项目的 `AGENTS.md` 或 `CLAUDE.md` 里加一行：
 
-大妈就上场了。
+```
+写完 TypeScript 代码后，用 ts-auntie-review skill 自审一遍，修完致命和警告级问题再交付。
+```
+
+AI 会在每次写完 TS 代码后自动加载大妈 skill，跑一轮六维审查，拿着结果自己改完再交付。
+
+#### Cursor
+
+在 `.cursor/rules/ts-auntie-review.mdc` 里加上 SKILL.md 内容，再在项目级 rules 里加一条：
+
+```
+After writing TypeScript code, run the ts-auntie-review checks before finishing.
+```
+
+#### Cline
+
+在 `.clinerules/ts-auntie-review.md` 里加上 SKILL.md 内容。Cline 会在每次代码任务结束时自动执行。
+
+#### GitHub Copilot Chat
+
+在 `.github/copilot-instructions.md` 里加一段：
+
+```
+After writing TypeScript code, review it against the ts-auntie-review checklist (type safety, naming, complexity, boundary, dead code, TS conventions). Fix all critical and warning issues before completing.
+```
+
+#### Aider
+
+在 `.aider.conf.yml` 里加上 `read: SKILL.md`，Aider 启动时自动加载，写完代码后可以一句话触发自审。
 
 ### 示例
 
