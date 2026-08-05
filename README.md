@@ -7,6 +7,8 @@
 [![Skill](https://img.shields.io/badge/Agent-Skill-purple.svg)](https://qwenwork.cn/docs)
 [![Stars](https://img.shields.io/github/stars/jianglinguan9-dot/居委会大妈审TS.svg)](https://github.com/jianglinguan9-dot/居委会大妈审TS)
 
+📖 **介绍文章** [掘金](待补充) · [Dev.to](待补充)
+
 ---
 
 ## 这是什么
