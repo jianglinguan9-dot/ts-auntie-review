@@ -76,7 +76,7 @@ git clone https://github.com/jianglinguan9-dot/ts-auntie-review.git ~/.workbuddy
 |---|---|
 | Cursor | 将 SKILL.md 内容粘贴到 `.cursor/rules/ts-auntie-review.mdc` |
 | Windsurf | 将 SKILL.md 内容粘贴到 `.windsurfrules` 或项目级 rules |
-| Cline | 将 SKILL.md 内容粘贴到 `.cline/rules/ts-auntie-review.md` |
+| Cline | 将 SKILL.md 内容粘贴到 `.clinerules/ts-auntie-review.md` |
 | Codex / ChatGPT | 将 SKILL.md 内容作为 system prompt 或 custom instructions |
 | GitHub Copilot Chat | 将 SKILL.md 内容粘贴到 `.github/copilot-instructions.md` |
 | Aider | 启动时加 `--read SKILL.md` 参数 |
@@ -158,7 +158,7 @@ ts-auntie-review/
 
 - [Cursor](https://cursor.com) — `.cursor/rules/ts-auntie-review.mdc`
 - [Windsurf](https://codeium.com/windsurf) — `.windsurfrules`
-- [Cline](https://cline.bot) — `.cline/rules/ts-auntie-review.md`
+- [Cline](https://cline.bot) — `.clinerules/ts-auntie-review.md`
 - [OpenAI Codex / ChatGPT](https://openai.com) — 作为 system prompt 或 custom instructions
 - [GitHub Copilot Chat](https://docs.github.com/copilot) — `.github/copilot-instructions.md`
 - [Aider](https://aider.chat) — `aider --read SKILL.md`

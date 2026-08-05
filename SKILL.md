@@ -71,7 +71,7 @@ description: Review TypeScript code for type safety, naming, complexity, boundar
 - 泛型是否过度嵌套或缺乏约束
 - 是否导出了不必要的内部类型
 - 是否使用了 `satisfies` 替代 `as`（TS 4.9+，详见 reference.md）
-- 类型 import 是否使用了 `import type`（TS 4.9+）
+- 类型 import 是否使用了 `import type`（TS 3.8+，内联 type 修饰符 TS 4.9+）
 
 > 详细 TS 规则和边界 case 参见 [reference.md](reference.md)。核心审查直接用以下规则即可，遇到模糊 case 时再查阅 reference。
 

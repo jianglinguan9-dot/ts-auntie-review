@@ -44,11 +44,15 @@ if (isUser(data)) {
 `satisfies` 会在编译期检查值是否符合类型，同时保留最精确的字面量类型。与 `as` 不同，`satisfies` 不会跳过检查——如果值不匹配类型，编译器会报错。
 
 ```typescript
-// as：跳过检查，不安全的值也不报错
-const color1 = "purple" as Color  // 无错误，但 "purple" 不在 Color 中
+type Color = 'red' | 'green' | 'blue'
 
-// satisfies：编译期验证，不匹配会报错
-const color2 = "purple" satisfies Color  // Error: "purple" 不可赋值给 Color
+const value: string = 'purple'
+
+// as：从 string 断言为 Color，编译器放行（不安全）
+const color1 = value as Color  // 无错误，但 value 实际是 "purple"
+
+// satisfies：编译期验证，string 不 assignable 到 Color，直接报错
+const color2 = value satisfies Color  // Error: Type 'string' does not satisfy the expected type 'Color'
 
 // 实用场景：配置对象验证，保留字面量类型
 const config = {
@@ -57,7 +61,7 @@ const config = {
 } satisfies Config  // 验证通过，且 environment 类型保留为 "development" 字面量
 ```
 
-**优先级**：`satisfies` > 类型守卫 > `as`。只有在无法用前两者的场景（如 DOM 查询 `document.getElementById('app') as HTMLDivElement`）才用 `as`。
+优先使用 `satisfies` 做编译期校验，类型守卫做运行时校验，`as` 只在前两者都无法使用时作为最后手段（如 DOM 查询 `document.getElementById('app') as HTMLDivElement`）。
 
 ### 非空断言 `!` 的判断标准
 
@@ -241,7 +245,7 @@ type UserRole = typeof UserRole[keyof typeof UserRole]
 - React 组件的 props（React.PropsWithChildren 默认 readonly）
 - 类中不应在外部修改的属性：`private readonly`
 
-### import type（TS 4.9+）
+### import type（TS 3.8+，内联 type 修饰符为 TS 4.9+）
 
 只用于类型标注的 import 应使用 `import type`，编译后会被完全移除，不产生运行时代码。
 
