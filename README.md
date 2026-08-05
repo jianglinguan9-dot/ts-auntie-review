@@ -7,7 +7,7 @@
 [![Skill](https://img.shields.io/badge/Agent-Skill-purple.svg)](https://qwenwork.cn/docs)
 [![Stars](https://img.shields.io/github/stars/jianglinguan9-dot/居委会大妈审TS.svg)](https://github.com/jianglinguan9-dot/居委会大妈审TS)
 
-📖 **介绍文章** [掘金](待补充) · [Dev.to](待补充)
+📖 **介绍文章** [掘金](https://juejin.cn/post/7670403328971800602) · [Dev.to](https://dev.to/linxian/i-built-a-chinese-neighborhood-auntie-to-review-typescript-code-typescript-ai-productivity-tooling-43k2)
 
 ---
 
